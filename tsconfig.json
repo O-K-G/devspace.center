@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -11,7 +15,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -20,18 +24,46 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"],
-      "@root/*": ["./*"],
-      "@locale/*": ["./src/app/[locale]/*"],
-      "@locales/*": ["./messages/*"],
-      "@components/*": ["./src/components/*"],
-      "@constants/*": ["./src/constants/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@i18nEn/*": ["./messages/en/*"],
-      "@i18n/*": ["./src/i18n/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@root/*": [
+        "./*"
+      ],
+      "@locale/*": [
+        "./src/app/[locale]/*"
+      ],
+      "@locales/*": [
+        "./messages/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@constants/*": [
+        "./src/constants/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@i18nEn/*": [
+        "./messages/en/*"
+      ],
+      "@i18n/*": [
+        "./src/i18n/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
