@@ -7,7 +7,7 @@ const ALLOWED_DOMAINS =
 
 const intlMiddleware = createMiddleware(routing);
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
 
   const isDevEnv = process.env.NODE_ENV === "development";
