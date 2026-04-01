@@ -10,6 +10,10 @@ const config: Config = {
   collectCoverage: true,
   coverageDirectory: "coverage",
   coverageProvider: "v8",
+  testPathIgnorePatterns: [
+    "<rootDir>/node_modules/",
+    "<rootDir>/playwright-tests/",
+  ],
   moduleNameMapper: {
     "^@/(.*)$": "src/$1",
     "^@/root/(.*)$": "/$1",

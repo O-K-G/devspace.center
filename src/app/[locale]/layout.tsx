@@ -3,8 +3,12 @@ import { Metadata, Viewport } from "next";
 import { CACHE_VERSION } from "@root/postcss.config.mjs";
 import handleFontsByLocale from "@utils/handleFontsByLocale";
 import getDirByLocale from "@utils/getDirByLocale";
-import { ReactNode } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
+
+interface RootLayoutProps extends PropsWithChildren {
+  params: Promise<{ locale?: string; rest?: string[] }>;
+}
 
 const { fontsByLocale } = handleFontsByLocale();
 
@@ -59,10 +63,7 @@ export const viewport: Viewport = {
 export default async function RootLayout({
   children,
   params,
-}: {
-  children: ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
+}: RootLayoutProps) {
   const { locale } = await params;
   const selectedLocale = locale || "en";
   const dir = getDirByLocale({ locale: selectedLocale }) || "ltr";
