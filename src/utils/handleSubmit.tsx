@@ -40,7 +40,7 @@ export async function handleSubmit(formData: FormData) {
     try {
       const { response } =
         (await transporter.sendMail(messageSendDetailsObject)) || {};
-
+console.log('xxx', HOST_SUCCESS_RESPONSE, response)
       if (response.includes(HOST_SUCCESS_RESPONSE as unknown as string)) {
         return { status: '201' };
       }
