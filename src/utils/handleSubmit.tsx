@@ -2,18 +2,11 @@
 
 import formValidation from "@utils/formValidation";
 import mailConfig from "@utils/mailConfig";
-import { JSDOM } from "jsdom";
-import DOMPurify from "dompurify";
+import DOMPurify from "isomorphic-dompurify";
 
 export async function handleSubmit(formData: FormData) {
   const fields = { dir: "", email: "", subject: "", content: "" };
-
-  const handleSanitation = (val: string) => {
-    const win = new JSDOM("").window;
-    const purify = DOMPurify(win);
-
-    return purify.sanitize(val);
-  };
+  const handleSanitation = (val: string) => DOMPurify.sanitize(val);
 
   Object.keys(fields).map(
     (key) =>
