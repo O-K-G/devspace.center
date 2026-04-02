@@ -6,7 +6,6 @@ import DOMPurify from "isomorphic-dompurify";
 
 export async function handleSubmit(formData: FormData) {
   const fields = { dir: "", email: "", subject: "", content: "" };
-
   const handleSanitation = (val: string) => DOMPurify.sanitize(val);
 
   Object.keys(fields).map(
