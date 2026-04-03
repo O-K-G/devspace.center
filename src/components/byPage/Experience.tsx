@@ -19,6 +19,10 @@ export default function Experience() {
     >
       <Title border>{t("mainTitle")}</Title>
       <ScrollableSubsection>
+            <ScrollableSubsection.Item>
+          <Title variant="subtitle">{t("volteraMainTitle")}</Title>
+          <ExpandableButton alternativeLabel={t("volteraDescription")} />
+        </ScrollableSubsection.Item>
         <ScrollableSubsection.Item>
           <Title variant="subtitle">{t("faiMainTitle")}</Title>
           <ExpandableButton alternativeLabel={t("faiDescription")} />

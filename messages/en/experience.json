@@ -6,6 +6,8 @@
     "faiMainTitle": "Web Developer, TL - FAI Systems",
     "faiDescription": "Lead the front-end development of a cutting-edge, intuitive Drag and Drop interface in an agile project environment using Next.js. Implement security best practices, including Content Security Policy (CSP), Trusted Types, and DOM sanitation, to safeguard applications against XSS and enhance overall application security. Drive the design and strategic management of future-proofed UI architecture and seamless business logic integration.",
     "faiMainTitle2": "Founding Web Dev. - FAI Systems",
-    "faiDescription2": "Designed and developed a feature-rich customer-facing website with user registration and authentication for a Toronto-based startup. Supported fundraising through venture capital presentations."
+    "faiDescription2": "Designed and developed a feature-rich customer-facing website with user registration and authentication for a Toronto-based startup. Supported fundraising through venture capital presentations.",
+    "volteraMainTitle": "Web Developer - Voltera inc.",
+    "volteraDescription": "Lead front-end developer of the company's marketing website in Waterloo ON, Canada. Duties include developming, maintaining and improving existing codebase"
   }
 }
