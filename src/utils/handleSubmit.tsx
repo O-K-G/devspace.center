@@ -6,14 +6,14 @@ import DOMPurify from "isomorphic-dompurify";
 
 export async function handleSubmit(formData: FormData) {
   const fields = { dir: "", email: "", subject: "", content: "" };
-  const handleSanitation = (val: string) => DOMPurify.sanitize(val);
+  const handleSanitation = (val: string) => console.log(val)
 
-  Object.keys(fields).map(
-    (key) =>
-      (fields[key as keyof typeof fields] = handleSanitation(
-        formData.get(key) as string,
-      )),
-  );
+  // Object.keys(fields).map(
+  //   (key) =>
+  //     (fields[key as keyof typeof fields] = handleSanitation(
+  //       formData.get(key) as string,
+  //     )),
+  // );
 
   const { dir, email, subject, content } = fields;
   const { isValidated } = formValidation({ email, subject, content });
