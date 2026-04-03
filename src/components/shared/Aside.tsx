@@ -1,24 +1,36 @@
-'use client';
+"use client";
 
-import { TransitionEventHandler, useEffect, useState } from 'react';
-import Contact from '@components/byPage/Contact';
-import { usePathname, useParams } from 'next/navigation';
-import ContactGoBackButton from '@components/shared/ContactGoBackButton';
-import { useTranslations } from 'next-intl';
-import getDirByLocale from '@utils/getDirByLocale';
+import { TransitionEventHandler, useEffect, useState } from "react";
+import Contact from "@components/byPage/Contact";
+import { usePathname, useParams } from "next/navigation";
+import ContactGoBackButton from "@components/shared/ContactGoBackButton";
+import { useTranslations } from "next-intl";
+import getDirByLocale from "@utils/getDirByLocale";
 
 export default function Aside() {
-  const t = useTranslations('contactGoBackButtonText');
+  const t = useTranslations("contactGoBackButtonText");
   const [open, setOpen] = useState<boolean | null>(null);
   const pathname = usePathname();
   const [openAtTransitionEnd, setOpenAtTransitionEnd] = useState(false);
   const { locale }: { locale: string } = useParams() || {};
 
   useEffect(() => {
+    const handleClose = ({ key }: KeyboardEvent) => {
+      if (key === "Escape") {
+        setOpen(false);
+      }
+    };
+
     if (open === null && pathname?.includes(`${locale as string}/contact`)) {
       setOpenAtTransitionEnd(true);
       setOpen(true);
     }
+
+    if (open) {
+      window.addEventListener("keydown", handleClose);
+    }
+
+    return () => window.removeEventListener("keydown", handleClose);
   }, [locale, open, pathname]);
 
   const handleTransitionEnd = ({
@@ -31,7 +43,7 @@ export default function Aside() {
 
     const handleTouchMove = (e: Event) => {
       const dir = getDirByLocale({ locale });
-      const isLTR = dir === 'ltr';
+      const isLTR = dir === "ltr";
       const slideDifference = isLTR
         ? touchX - (e as TouchEvent).touches[0].clientX
         : (e as TouchEvent).touches[0].clientX - touchX;
@@ -43,21 +55,21 @@ export default function Aside() {
         : touchX < (e as TouchEvent).touches[0].clientX;
 
       if (touchEnd && sensitivityFactor) {
-        el?.removeEventListener('touchmove', handleTouchMove);
+        el?.removeEventListener("touchmove", handleTouchMove);
         setOpen(false);
       }
     };
 
     const handleTouchStart = (e: Event) => {
       touchX = (e as TouchEvent).touches[0].clientX;
-      el?.removeEventListener('touchstart', handleTouchStart);
-      el?.addEventListener('touchmove', handleTouchMove);
+      el?.removeEventListener("touchstart", handleTouchStart);
+      el?.addEventListener("touchmove", handleTouchMove);
     };
 
     if (!open) {
       setOpenAtTransitionEnd(false);
     } else {
-      el?.addEventListener('touchstart', handleTouchStart);
+      el?.addEventListener("touchstart", handleTouchStart);
     }
   };
 
@@ -69,7 +81,7 @@ export default function Aside() {
           setOpen(true);
         }}
       >
-        {t('contactMe')}
+        {t("contactMe")}
       </ContactGoBackButton>
       <aside
         onTransitionEnd={

@@ -2,17 +2,12 @@
 
 import formValidation from "@utils/formValidation";
 import mailConfig from "@utils/mailConfig";
-import DOMPurify from "isomorphic-dompurify";
 
 export async function handleSubmit(formData: FormData) {
   const fields = { dir: "", email: "", subject: "", content: "" };
-  const handleSanitation = (val: string) => DOMPurify.sanitize(val);
 
   Object.keys(fields).map(
-    (key) =>
-      (fields[key as keyof typeof fields] = handleSanitation(
-        formData.get(key) as string,
-      )),
+    (key) => (fields[key as keyof typeof fields] = formData.get(key) as string),
   );
 
   const { dir, email, subject, content } = fields;
