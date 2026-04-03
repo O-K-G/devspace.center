@@ -3,7 +3,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ["jsdom"],
-  transpilePackages: ["@exodus/bytes", "html-encoding-sniffer", "jsdom"],
+  transpilePackages: ["@exodus/bytes", "html-encoding-sniffer"],
 };
 
 const withNextIntl = createNextIntlPlugin();
