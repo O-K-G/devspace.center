@@ -2,7 +2,7 @@
 
 import formValidation from "@utils/formValidation";
 import mailConfig from "@utils/mailConfig";
-import DOMPurify from "isomorphic-dompurify";
+// import DOMPurify from "isomorphic-dompurify";
 
 export async function handleSubmit(formData: FormData) {
   const fields = { dir: "", email: "", subject: "", content: "" };
