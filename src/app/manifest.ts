@@ -3,8 +3,8 @@ import { CACHE_VERSION } from "@root/postcss.config.mjs";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "console.log(me)",
-    short_name: "console.log(me)",
+    name: "devspace.center",
+    short_name: "devspace.center",
     description: "My landing page",
     start_url: "/",
     display: "browser",

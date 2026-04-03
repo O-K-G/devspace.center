@@ -13,10 +13,10 @@ interface RootLayoutProps extends PropsWithChildren {
 const { fontsByLocale } = handleFontsByLocale();
 
 export const metadata: Metadata = {
-  title: "console.log(me)",
+  title: "Dev Space Center",
   description:
     "This is my landing page to showcase some of my web development skills. ",
-  applicationName: "consolelogme",
+  applicationName: "devspacecenter",
   keywords: [
     "console",
     "log",
