@@ -2,7 +2,7 @@ import { handleA11y1000FirstNumbers } from '@utils/handleA11y1000FirstNumbers';
 import { InputComponentProps } from '@constants/interfaces';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
-import DOMPurify from 'dompurify';
+import DOMPurify from "isomorphic-dompurify";
 
 export default function InputComponent({
   component: Component = 'input',
